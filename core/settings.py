@@ -18,7 +18,7 @@ SECRET_KEY = config('SECRET_KEY', default='S#perS3crEt_1122')
 DEBUG = config('DEBUG', default=True, cast=bool)
 
 # load production server from .env
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', config('SERVER', default='127.0.0.1')]
+# ALLOWED_HOSTS = ['localhost', '127.0.0.1', config('SERVER', default='127.0.0.1')]
 
 # Application definition
 
@@ -143,3 +143,14 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
 ]
+
+DATABASES = {
+    'default': {
+        'ENGINE': config('ENGINE_DB', default='django.db.backends.postgresql'),
+        'NAME': config('NAME_DB', default='mydatabase'),
+        'USER': config('USER_DB', default='mydatabaseuser'),
+        'PASSWORD': config('PASSWORD_DB', default='mypassword'),
+        'HOST': config('HOST_DB', default='127.0.0.1'),
+        'PORT': config('PORT_DB', default='5432'),
+    }
+}
